@@ -158,8 +158,8 @@ $user_excludes = $excludes->get_user_excludes(); ?>
 						$excluded_size = $excluded_site_size->filesize( $root ); ?>
 
 							<code>
-								<?php $excluded_size = is_same_size_format( $size, $excluded_size ) ? (int) size_format( $excluded_size ) : size_format( $excluded_size ); ?>
-								<?php echo sprintf( __( '%s of %s', 'backupwordpress' ), esc_html( $excluded_size ), esc_html( size_format( $size ) ) ); ?>
+								<?php $excluded_size = is_same_size_format( $size, $excluded_size ) ? (int) size_format( $excluded_size, 2 ) : size_format( $excluded_size, 2 ); ?>
+								<?php echo sprintf( __( '%s of %s', 'backupwordpress' ), esc_html( $excluded_size ), esc_html( size_format( $size, 2 ) ) ); ?>
 								<a class="dashicons dashicons-update" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'hmbkp_recalculate_directory_filesize',  urlencode( Path::get_root() ) ), 'hmbkp-recalculate_directory_filesize' ) ); ?>"><span><?php _e( 'Refresh', 'backupwordpress' ); ?></span></a>
 							</code>
 
@@ -263,8 +263,8 @@ $user_excludes = $excludes->get_user_excludes(); ?>
 								<code>
 
 									<?php if ( $file->isDir() ) {
-										$excluded_size = is_same_size_format( $size, $excluded_size ) ? (int) size_format( $excluded_size ) : size_format( $excluded_size );
-										echo sprintf( __( '%s of %s', 'backupwordpress' ), esc_html( $excluded_size ), esc_html( size_format( $size ) ) );
+										$excluded_size = is_same_size_format( $size, $excluded_size ) ? (int) size_format( $excluded_size, 2 ) : size_format( $excluded_size, 2 );
+										echo sprintf( __( '%s of %s', 'backupwordpress' ), esc_html( $excluded_size ), esc_html( size_format( $size, 2 ) ) );
 									} elseif ( ! $is_unreadable ) {
 										echo esc_html( $size );
 									} else {
